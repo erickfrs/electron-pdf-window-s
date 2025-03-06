@@ -13405,6 +13405,21 @@ class PDFPrintService {
 }
 exports.PDFPrintService = PDFPrintService;
 const print = window.print;
+
+let countPrintChange=0
+var mediaQueryList = window.matchMedia('print');
+mediaQueryList.addListener(function (mql) {
+  console.log(mql)
+   if (mql.matches) {
+    countPrintChange++
+    if(countPrintChange == 1){
+      if(temp_idprotocolo != undefined){
+        enviarMensagem(`processos.movimentacao.detalhe_savePrintDoc(${temp_idprotocolo})`)
+      }
+    }
+   }
+});
+
 window.print = function () {
   if (activeService) {
     console.warn("Ignored window.print() because of a pending print job.");
