@@ -1,0 +1,51 @@
+{
+  "name": "electron-pdf-window-s",
+  "version": "2.1.0",
+  "description": "View pdf in new browser windows.",
+  "author": {
+    "name": "Gu-Miao",
+    "email": "gutianhuang@foxmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gu-miao/electron-pdf-window-s.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gu-miao/electron-pdf-window-s/issues"
+  },
+  "homepage": "https://github.com/gu-miao/electron-pdf-window-s#readme",
+  "keywords": [
+    "electron",
+    "pdf",
+    "pdfjs"
+  ],
+  "license": "MIT",
+  "files": [
+    "dist",
+    "types",
+    "viewer",
+    "LICENSE.txt",
+    "README_zh.md",
+    "README.md",
+    "package.json"
+  ],
+  "main": "dist/index.js",
+  "types": "types/index.d.ts",
+  "scripts": {
+    "build": "rollup -c",
+    "pretest": "npm run build",
+    "test": "electron test/index.js"
+  },
+  "dependencies": {
+    "got": "^11.8.3",
+    "read-chunk": "3.2.0"
+  },
+  "devDependencies": {
+    "electron": "^16.0.1",
+    "rollup": "^2.60.0",
+    "rollup-plugin-clear": "^2.0.7"
+  },
+  "peerDependencies": {
+    "electron": ">=8.0.0"
+  }
+}
