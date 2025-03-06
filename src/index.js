@@ -1,4 +1,4 @@
-const electron = require('electron')
+const electron = require('@electron/remote')
 const readChunk = require('read-chunk')
 const got = require('got')
 const path = require('path')
