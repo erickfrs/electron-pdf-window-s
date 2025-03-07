@@ -12344,6 +12344,7 @@ exports.DownloadManager = void 0;
 var _pdfjsLib = __webpack_require__(4);
 ;
 function download(blobUrl, filename) {
+  console.log("download")
   const a = document.createElement("a");
   if (!a.click) {
     throw new Error('DownloadManager: "a.click()" is not supported.');
@@ -12351,11 +12352,21 @@ function download(blobUrl, filename) {
   a.href = blobUrl;
   a.target = "_parent";
   if ("download" in a) {
-    a.download = filename;
+    function basename(path) {
+      return path.replace(/^.*[\\\/]/, '');
+    }
+    a.download = basename(filename);
   }
   (document.body || document.documentElement).append(a);
   a.click();
   a.remove();
+  try {
+    if (temp_idprotocolo != undefined) {
+      enviarMensagem(`processos.movimentacao.detalhe_saveDownloadDoc(${temp_idprotocolo})`)
+    }
+  } catch (error) {
+    //nd
+  }
 }
 class DownloadManager {
   #openBlobUrls = new WeakMap();
